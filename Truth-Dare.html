@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Truth or Dare Game</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background-color: #f8f9fa;
+      transition: background-color 0.3s;
+    }
+
+    .dark-mode {
+      background-color: #1f2937;
+      color: white;
+    }
+
+    .card {
+      background-color: white;
+      padding: 2rem;
+      border-radius: 1.5rem;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      max-width: 600px;
+      width: 90%;
+      text-align: center;
+      position: relative;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    .dark-mode .card {
+      background-color: #374151;
+      color: white;
+    }
+
+    .btn {
+      padding: 0.75rem 1.5rem;
+      background-color: #d946ef;
+      color: white;
+      border: none;
+      border-radius: 9999px;
+      cursor: pointer;
+      margin: 0.25rem;
+      font-size: 1rem;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    .btn:hover {
+      background-color: #c026d3;
+    }
+
+    .select {
+      padding: 0.75rem;
+      border-radius: 9999px;
+      border: 2px solid #f5d0fe;
+      background-color: #fdf4ff;
+      margin-bottom: 1.5rem;
+      width: 30%;
+    }
+
+    .dark-mode .select {
+      background-color: #4b5563;
+      color: white;
+      border-color: #6b7280;
+    }
+
+    .prompt-box {
+      padding: 1rem;
+      border-radius: 1rem;
+      margin-top: 1.5rem;
+      background-color: #f9f0fb;
+      font-weight: 600;
+      min-height: 35px;
+      opacity: 0;
+      animation: fadeIn 0.5s ease-in-out forwards;
+    }
+
+    .dark-mode .prompt-box {
+      background-color: #4b5563;
+    }
+
+    .prompt-text {
+      opacity: 0;
+    }
+
+    .fade-in {
+      animation: fadeIn 0.5s ease-in-out forwards;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+
+      to {
+        opacity: 1;
+      }
+    }
+
+
+    h1.heading {
+      color: #d946ef;
+      font-weight: bold;
+      font-size: 3rem;
+      margin-bottom: 2rem;
+      margin-top: 2rem;
+    }
+
+    #toggle-theme {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background-color: #fae8ff;
+      color: #a21caf;
+      margin-bottom: 1.5rem;
+    }
+
+    .dark-mode #toggle-theme {
+      background-color: #4b5563;
+      color: #fae8ff;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="card">
+    <button id="toggle-theme" class="btn">🌙 Dark</button>
+    <h1 class="heading">Truth or Dare Game</h1>
+
+    <div id="start-section">
+      <button id="start-btn" class="btn">Let's Play</button>
+    </div>
+
+    <div id="game-section" style="display:none;">
+      <select id="category" class="select">
+        <option value="kids">Kids</option>
+        <option value="soft">Soft</option>
+        <option value="party">Party</option>
+        <option value="spicy">Spicy</option>
+      </select>
+      <div>
+        <button class="btn" onclick="generatePrompt('truth')">Truth</button>
+        <button class="btn" onclick="generatePrompt('dare')">Dare</button>
+      </div>
+      <div id="prompt-box" class="prompt-box">
+        <div id="prompt-text" class="prompt-text"></div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const data = {
+      kids: {
+        truth: [
+          "What's your favorite cartoon?",
+          "Have you ever eaten a bug?",
+          "Who's your best friend at school?",
+          "What’s your favorite color?",
+          "Do you have an imaginary friend?",
+          "What’s the funniest joke you know?",
+          "Have you ever lied to your parents?",
+          "What’s your biggest fear?",
+          "Do you believe in monsters?",
+          "What's your favorite ice cream flavor?",
+          "Have you ever peeked at gifts early?",
+          "What's your favorite subject in school?",
+          "What's your dream job?",
+          "Do you like vegetables?",
+          "What’s your weirdest habit?",
+        ],
+        dare: [
+          "Do 5 jumping jacks",
+          "Sing the ABC song",
+          "Pretend to be a dog for 10 seconds",
+          "Dance like a robot",
+          "Make a silly face and hold it for 10 seconds",
+          "Draw a picture with your eyes closed",
+          "Act like your favorite animal",
+          "Do a cartwheel",
+          "Talk like a pirate",
+          "Hop around the room",
+          "Tell a joke",
+          "Pretend the floor is lava",
+          "Balance a book on your head",
+          "Spin in a circle 5 times",
+          "Make up a song about pizza",
+        ],
+      },
+      soft: {
+        truth: [
+          "Have you ever had a crush on someone in this room?",
+          "What’s your most embarrassing moment?",
+          "Have you ever cheated in a test?",
+          "Do you believe in love at first sight?",
+          "Who was your first crush?",
+          "Have you ever lied to a friend?",
+          "What's a secret you've never told anyone?",
+          "What's your biggest insecurity?",
+          "Do you sing in the shower?",
+          "What's your favorite romantic movie?",
+          "What's your guilty pleasure?",
+          "Have you ever broken someone's heart?",
+          "Would you go on a blind date?",
+          "What's your dream date?",
+          "Have you ever written a love letter?",
+        ],
+        dare: [
+          "Text your crush 'Hi 😊'",
+          "Do a TikTok dance",
+          "Speak in a British accent for the next round",
+          "Say something nice to everyone playing",
+          "Sing a romantic song",
+          "Imitate someone in the group",
+          "Write a cheesy pickup line and read it out loud",
+          "Compliment the person to your left",
+          "Act like you're on a cooking show",
+          "Do 10 push-ups",
+          "Take a selfie making a funny face",
+          "Talk like a baby for 1 minute",
+          "Whistle your favorite song",
+          "Try to touch your toes for 30 seconds",
+          "Say 3 things you love about yourself",
+        ],
+      },
+      party: {
+        truth: [
+          "Have you ever drunk texted someone?",
+          "What’s the wildest thing you've done at a party?",
+          "Ever kissed more than one person in a day?",
+          "What's your craziest night out story?",
+          "Have you ever passed out from partying?",
+          "Have you ever danced on a table?",
+          "What’s your worst hangover story?",
+          "Have you ever done something you regret while drunk?",
+          "Who’s the most attractive person here?",
+          "Ever had a party hookup?",
+          "What’s your favorite party game?",
+          "Do you prefer clubbing or house parties?",
+          "What’s your party drink of choice?",
+          "Have you ever crashed a party?",
+          "What’s your best dance move?",
+        ],
+        dare: [
+          "Take a shot of lemon juice",
+          "Post an embarrassing photo on your story",
+          "Do a prank call to someone in your contacts",
+          "Dance with no music for 30 seconds",
+          "Swap an item of clothing with someone",
+          "Try to juggle 3 random things",
+          "Chug a glass of water in 10 seconds",
+          "Do a karaoke performance",
+          "Let someone draw on your face with eyeliner",
+          "Send a funny voice note to your group chat",
+          "Eat something blindfolded",
+          "Act like your drunkest moment",
+          "Speak only in song lyrics for 2 minutes",
+          "Put your socks on your hands for the next 3 rounds",
+          "Read your last text out loud",
+        ],
+      },
+      spicy: {
+        truth: [
+          "What’s your wildest fantasy?",
+          "Would you let your partner fuck you in your dream?",
+          "Rate your partner's body?",
+          "What's your favorite position?",
+          "Tell your partner the use of condom",
+          "Do you like dirty talk?",
+          "Ask whatever you want",
+          "Your favourite pornstar",
+          "Is it fun to play with your partner",
+          "If you become male/female for a day what you like to do?",
+          "What’s the kinkiest thing you’ve done?",
+          "Does size matter?",
+          "Tell your partner what is your most sensitive erogenous zone?",
+          "Have you ever filmed yourself during sex?",
+          "Do you like to have or try any adult toys?",
+          "What’s your favorite body part to be kissed on?",
+          "Ever had a crush on a friend’s partner?",
+          "Do you like being dominant or submissive?",
+          "What’s a turn-on you’ve never told anyone?",
+          "Have you ever had public sex?",
+          "What’s your sexiest dream?",
+          "Have you watched any adult content?",
+          "What’s something really naughty you want to try?",
+          "Where you like to be touched?",
+          "Where you like to be touched top or bottom?",
+          "Are you happy with your boobs size?",
+          "What do you think about your partner's boobs?",
+          "What do you think about your partner's dick?",
+        ],
+        dare: [
+
+          "Whisper something dirty to the person next to you",
+          "Act out your favorite position",
+          "Hold/touch your partner's intimate part untill next round",
+          "Blowjob your partner and swallow it",
+          "Give handjob to your partner",
+          "Select your partner bra or bikini online and shop for it",
+          "Touch your partner with your chest",
+          "Give chest massage to your parner",
+          "Top your partner and start riding",
+          "Major the size of your partner's dick",
+          "Do BDSM with your partner, enjoy",
+          "Suck at my nipple just for a minute",
+          "Touch your partner's intimate parts",
+          "You are his/her submissive for 5 minutes",
+          "Put your pants down and show your underwear color",
+          "Undress your partner up to his/her underwear",
+          "Touch another player's boobs",
+          "Lick your partner's breasts",
+          "Give another player a sensual massage",
+          "Kiss your partner's intimate parts",
+          "Major the size of your partner's boobs",
+          "Give massage to your partner where ever they want",
+          "Play with your partner's dick",
+          "Play with your partner's boobs",
+          "Find your partner's nipple",
+          "Pinch, squeez and rub your partner's nipple",
+          "Play with your partner's intimate parts",
+          "Finger your partner",
+          "Finger your partner pussy",
+          "Masterbate your partner",
+          "Give your partner a sensual massage",
+          "Make your partner horny",
+          "Slap your partner's butt",
+          "Eat your partner's pussy",
+          "Lick your partner's pussy",
+          "Lick your partner's dick",
+          "Show your boobs",
+          "You have to fake replicate a sex position with your partner",
+          "Watch a porno with your partner",
+          "You have to take off all of your cloths and show your body to your partner",
+          "Remove your partner's bra",
+          "Massage your partner untill they got satisfied",
+          "Give your partner a blowjob",
+          "Give a boob massage to your partner",
+          "Fuck your partner, have fun time",
+          "Lick your partner's nipple",
+          "Fuck your partner",
+          "Do 69 with your partner",
+          "Fuck your partner in their favourite position",
+          "Put your hand under your partner's top/bottom cloth and touch their intimate part",
+          "Show your partner by holding their hand that how they can give you massage and let them continue",
+          "Get naked",
+          "Buy your partner a sex toy as gift",
+          "Watch a video of your favourite pornstar",
+          "Watch a video of your favourite pornstar and copy every move with your partner",
+          "Change your cloths in front of your partner",
+          "Take a bath with your partner",
+          "Kiss your partner's pussy",
+          "Show your pussy & boobs to your partner",
+          "Show your dick to your partner",
+          "Let your partner wear you a condom",
+          "Fuck your partner for an hour",
+          "Grab your partner's boobs",
+          "Do whatever your partner say",
+          "Test a new position",
+          "Your partner can do whatever he/she wants for 5 minutes, then you can do the same...",
+          "Tell everybody about your favorite sex toy",
+          "Be the submissive of your partner for 15 minutes",
+          "Lick your partner from their neck all the way to the brim or their underwear",
+          "Take off your partner's bra",
+        ],
+      },
+    };
+
+    const categoryEl = document.getElementById('category');
+    const promptBox = document.getElementById('prompt-box');
+    const body = document.body;
+    const toggleBtn = document.getElementById('toggle-theme');
+
+    let darkMode = false;
+
+    document.getElementById('start-btn').addEventListener('click', () => {
+      document.getElementById('start-section').style.display = 'none';
+      document.getElementById('game-section').style.display = 'block';
+    });
+
+    toggleBtn.addEventListener('click', () => {
+      darkMode = !darkMode;
+      body.classList.toggle('dark-mode', darkMode);
+      toggleBtn.textContent = darkMode ? '☀️ Light' : '🌙 Dark';
+    });
+
+
+    function generatePrompt(type) {
+      const category = categoryEl.value;
+      const list = data[category]?.[type];
+      if (!list || list.length === 0) {
+        promptBox.textContent = 'Oops! No Truth/Dare available, Ask whatever you want.';
+        return;
+      }
+      const randomItem = list[Math.floor(Math.random() * list.length)];
+      promptBox.style.opacity = 0;
+      promptBox.offsetHeight; // trigger reflow
+      promptBox.textContent = randomItem;
+      promptBox.style.opacity = 1;
+    }
+  </script>
+</body>
+
+</html>
