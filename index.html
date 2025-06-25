@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -11,7 +12,8 @@
       box-sizing: border-box;
     }
 
-    html, body {
+    html,
+    body {
       height: 100%;
       font-family: 'Poppins', sans-serif;
       background: linear-gradient(160deg, #0d0b0e 0%, #1a0d13 100%);
@@ -25,7 +27,7 @@
       width: 100vw;
       height: 100vh;
       background: radial-gradient(circle at top left, rgba(255, 0, 85, 0.25), transparent 60%),
-                  radial-gradient(circle at bottom right, rgba(128, 0, 128, 0.2), transparent 60%);
+        radial-gradient(circle at bottom right, rgba(128, 0, 128, 0.2), transparent 60%);
       z-index: -2;
       animation: pulseBG 15s infinite alternate;
     }
@@ -54,74 +56,159 @@
       border-radius: 50%;
     }
 
-    .bubbles li:nth-child(1) { left: 25%; width: 40px; height: 40px; animation-delay: 0s; }
-    .bubbles li:nth-child(2) { left: 10%; width: 20px; height: 20px; animation-delay: 2s; }
-    .bubbles li:nth-child(3) { left: 70%; width: 30px; height: 30px; animation-delay: 4s; }
-    .bubbles li:nth-child(4) { left: 40%; width: 25px; height: 25px; animation-delay: 0s; }
-    .bubbles li:nth-child(5) { left: 65%; width: 60px; height: 60px; animation-delay: 3s; }
-    .bubbles li:nth-child(6) { left: 75%; width: 15px; height: 15px; animation-delay: 5s; }
-    .bubbles li:nth-child(7) { left: 35%; width: 30px; height: 30px; animation-delay: 7s; }
-    .bubbles li:nth-child(8) { left: 50%; width: 22px; height: 22px; animation-delay: 1s; }
-    .bubbles li:nth-child(9) { left: 20%; width: 45px; height: 45px; animation-delay: 6s; }
-    .bubbles li:nth-child(10) { left: 85%; width: 12px; height: 12px; animation-delay: 8s; }
+    .bubbles li:nth-child(1) {
+      left: 25%;
+      width: 40px;
+      height: 40px;
+      animation-delay: 0s;
+    }
+
+    .bubbles li:nth-child(2) {
+      left: 10%;
+      width: 20px;
+      height: 20px;
+      animation-delay: 2s;
+    }
+
+    .bubbles li:nth-child(3) {
+      left: 70%;
+      width: 30px;
+      height: 30px;
+      animation-delay: 4s;
+    }
+
+    .bubbles li:nth-child(4) {
+      left: 40%;
+      width: 25px;
+      height: 25px;
+      animation-delay: 0s;
+    }
+
+    .bubbles li:nth-child(5) {
+      left: 65%;
+      width: 60px;
+      height: 60px;
+      animation-delay: 3s;
+    }
+
+    .bubbles li:nth-child(6) {
+      left: 75%;
+      width: 15px;
+      height: 15px;
+      animation-delay: 5s;
+    }
+
+    .bubbles li:nth-child(7) {
+      left: 35%;
+      width: 30px;
+      height: 30px;
+      animation-delay: 7s;
+    }
+
+    .bubbles li:nth-child(8) {
+      left: 50%;
+      width: 22px;
+      height: 22px;
+      animation-delay: 1s;
+    }
+
+    .bubbles li:nth-child(9) {
+      left: 20%;
+      width: 45px;
+      height: 45px;
+      animation-delay: 6s;
+    }
+
+    .bubbles li:nth-child(10) {
+      left: 85%;
+      width: 12px;
+      height: 12px;
+      animation-delay: 8s;
+    }
 
     @keyframes rise {
-      0% { transform: translateY(0) scale(1); opacity: 0.4; }
-      50% { opacity: 0.8; }
-      100% { transform: translateY(-1000px) scale(1.5); opacity: 0; }
+      0% {
+        transform: translateY(0) scale(1);
+        opacity: 0.4;
+      }
+
+      50% {
+        opacity: 0.8;
+      }
+
+      100% {
+        transform: translateY(-1000px) scale(1.5);
+        opacity: 0;
+      }
     }
 
     @keyframes pulseBG {
-      0% { filter: brightness(1); }
-      100% { filter: brightness(1.1); }
+      0% {
+        filter: brightness(1);
+      }
+
+      100% {
+        filter: brightness(1.1);
+      }
     }
 
     .overlay {
       position: absolute;
       width: 100%;
       height: 100%;
-      background: repeating-linear-gradient(
-        45deg,
-        rgba(255, 255, 255, 0.02) 0px,
-        rgba(255, 255, 255, 0.02) 1px,
-        transparent 1px,
-        transparent 4px
-      );
+      background: repeating-linear-gradient(45deg,
+          rgba(255, 255, 255, 0.02) 0px,
+          rgba(255, 255, 255, 0.02) 1px,
+          transparent 1px,
+          transparent 4px);
       pointer-events: none;
     }
 
     .content {
+      position: relative;
+      max-width: 100%;
+      width: 100%;
+      padding: 3rem 1rem 2rem;
+      text-align: center;
+      color: #ffccd5;
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
-      min-height: 100vh;
-      text-align: center;
-      color: #ffccd5;
-      padding: 2rem 1rem;
+      margin-top: 10vh;
+      /* << puts heading closer to the top */
     }
+
+
+
+
 
     .content h1 {
       font-size: 4rem;
       color: #ff4d6d;
       text-shadow: 0 0 20px rgba(255, 77, 109, 0.5);
-      margin-bottom: 0.5rem;
+      margin-bottom: 1rem;
       animation: glow 2s ease-in-out infinite alternate;
     }
 
     @keyframes glow {
-      from { text-shadow: 0 0 10px rgba(255, 77, 109, 0.4); }
-      to { text-shadow: 0 0 30px rgba(255, 77, 109, 0.8); }
+      from {
+        text-shadow: 0 0 10px rgba(255, 77, 109, 0.4);
+      }
+
+      to {
+        text-shadow: 0 0 30px rgba(255, 77, 109, 0.8);
+      }
     }
 
     .content p {
       font-size: 1.25rem;
       color: #ffb3c1;
-      margin-bottom: 2rem;
+      margin-bottom: 4rem;
       opacity: 0.8;
     }
 
-    .levels, .truth-dare {
+    .levels,
+    .truth-dare {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
@@ -131,11 +218,19 @@
     }
 
     @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
-    .level-button, .td-button {
+    .level-button,
+    .td-button {
       padding: 1rem 2rem;
       border: 2px solid rgba(255, 77, 109, 0.4);
       border-radius: 14px;
@@ -149,7 +244,8 @@
       transition: 0.3s ease;
     }
 
-    .level-button:hover, .td-button:hover {
+    .level-button:hover,
+    .td-button:hover {
       background: rgba(255, 77, 109, 0.4);
       box-shadow: inset 0 0 15px rgba(255, 77, 109, 0.6), 0 0 22px rgba(255, 77, 109, 0.6);
     }
@@ -204,10 +300,13 @@
       .content h1 {
         font-size: 2.5rem;
       }
-      .level-button, .td-button {
+
+      .level-button,
+      .td-button {
         font-size: 0.95rem;
         padding: 0.8rem 1.2rem;
       }
+
       .compact .level-button {
         font-size: 0.7rem;
         padding: 0.3rem 0.8rem;
@@ -218,21 +317,88 @@
       .content h1 {
         font-size: 1.9rem;
       }
-      .level-button, .td-button {
+
+      .level-button,
+      .td-button {
         font-size: 0.85rem;
         padding: 0.6rem 1rem;
       }
+
       .question-box {
         font-size: 0.95rem;
         padding: 0.8rem 1.2rem;
       }
     }
+
+    @media (max-width: 768px) {
+      .content {
+        padding: 1.5rem 1rem;
+      }
+
+      .content h1 {
+        font-size: 2.8rem;
+        margin-bottom: 1rem;
+      }
+
+      .content p {
+        font-size: 1.1rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .level-button,
+      .td-button {
+        padding: 1.2rem 2rem;
+        font-size: 1.2rem;
+        border-width: 2px;
+      }
+
+      .question-box {
+        font-size: 1.2rem;
+        padding: 1rem 1.5rem;
+        min-height: 80px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .content h1 {
+        font-size: 3.2rem;
+      }
+
+      .level-button,
+      .td-button {
+        font-size: 1.05rem;
+        padding: 1rem 1.5rem;
+      }
+
+      .question-box {
+        font-size: 1.05rem;
+        padding: 1rem;
+        min-height: 65px;
+      }
+
+      .content p {
+        font-size: 1rem;
+      }
+
+      .question-text {
+        padding: 0 10px;
+      }
+    }
   </style>
 </head>
+
 <body>
   <ul class="bubbles">
-    <li></li><li></li><li></li><li></li><li></li>
-    <li></li><li></li><li></li><li></li><li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
   </ul>
   <div class="background">
     <div class="overlay"></div>
@@ -259,621 +425,621 @@
   <script>
     const questions = {
       Kids: {
-                truth: [
-                    "What's your favorite cartoon?",
-                    "Have you ever eaten a bug?",
-                    "Who's your best friend at school?",
-                    "What’s your favorite color?",
-                    "Do you have an imaginary friend?",
-                    "What’s the funniest joke you know?",
-                    "Have you ever lied to your parents?",
-                    "What’s your biggest fear?",
-                    "Do you believe in monsters?",
-                    "What's your favorite ice cream flavor?",
-                    "Have you ever peeked at gifts early?",
-                    "What's your favorite subject in school?",
-                    "What's your dream job?",
-                    "Do you like vegetables?",
-                    "What’s your weirdest habit?",
-                ],
-                dare: [
-                    "Do 5 jumping jacks",
-                    "Sing the ABC song",
-                    "Pretend to be a dog for 10 seconds",
-                    "Dance like a robot",
-                    "Make a silly face and hold it for 10 seconds",
-                    "Draw a picture with your eyes closed",
-                    "Act like your favorite animal",
-                    "Do a cartwheel",
-                    "Talk like a pirate",
-                    "Hop around the room",
-                    "Tell a joke",
-                    "Pretend the floor is lava",
-                    "Balance a book on your head",
-                    "Spin in a circle 5 times",
-                    "Make up a song about pizza",
-                ],
-            },
-            Soft: {
-                truth: [
-                    "Have you ever had a crush on someone in this room?",
-                    "What’s your most embarrassing moment?",
-                    "Have you ever cheated in a test?",
-                    "Do you believe in love at first sight?",
-                    "Who was your first crush?",
-                    "Have you ever lied to a friend?",
-                    "Have you ever sneaked snacks when your parents weren't looking?",
-                    "What's a secret you've never told anyone?",
-                    "Would you rather live in a house in a suburb or in an appartment in a big city?",
-                    "If you had to audition for 'The Voice', which song would you choose to sing?",
-                    "If you could be a professional athlete in any sport, what sport would you choose?",
-                    "What have you done that you're the most proud of?",
-                    "What's the worst job you could possibly have?",
-                    "Would you rather be able to play any music instrument in the world or speak with animals?",
-                    "What do you follow most often - your head or your heart?",
-                    "If you were a king of your own kingdom, what would be your first order?",
-                    "If you write a book, what would it be about?",
-                    "If a genie came out of a lamp, what would your 3 wishes be?",
-                    "Who in your opinion is the lamest celebrity?",
-                    "If you had 5 extra hours a day, what would you spend them on?",
-                    "If you had a time machine, to which time perioud would you go?",
-                    "What's your favorite website?",
-                    "If you win a 1.000.000$, what would you do with the money?",
-                    "What's your biggest insecurity?",
-                    "Do you sing in the shower?",
-                    "What's your favorite romantic movie?",
-                    "What's your guilty pleasure?",
-                    "Have you ever broken someone's heart?",
-                    "Would you go on a blind date?",
-                    "What's your dream date?",
-                    "Have you ever written a love letter?",
-                ],
-                dare: [
-                    "Text your crush 'Hi 😊'",
-                    "Do a TikTok dance",
-                    "Speak in a British accent for the next round",
-                    "Say something nice to everyone playing",
-                    "Sing a romantic song",
-                    "Imitate someone in the group",
-                    "Write a cheesy pickup line and read it out loud",
-                    "Compliment the person to your left",
-                    "Act like you're on a cooking show",
-                    "Do 10 push-ups",
-                    "Take a selfie making a funny face",
-                    "Talk like a baby for 1 minute",
-                    "Whistle your favorite song",
-                    "Try to touch your toes for 30 seconds",
-                    "Say 3 things you love about yourself",
-                ],
-            },
-            Party: {
-                truth: [
-                    "Have you ever drunk texted someone?",
-                    "What’s the wildest thing you've done at a party?",
-                    "Ever kissed more than one person in a day?",
-                    "What's your craziest night out story?",
-                    "Have you ever passed out from partying?",
-                    "Have you ever danced on a table?",
-                    "What’s your worst hangover story?",
-                    "Have you ever done something you regret while drunk?",
-                    "Who’s the most attractive person here?",
-                    "Ever had a party hookup?",
-                    "What’s your favorite party game?",
-                    "Do you prefer clubbing or house parties?",
-                    "What’s your party drink of choice?",
-                    "Have you ever crashed a party?",
-                    "What’s your best dance move?",
-                ],
-                dare: [
-                    "Take a shot of lemon juice",
-                    "Post an embarrassing photo on your story",
-                    "Do a prank call to someone in your contacts",
-                    "Dance with no music for 30 seconds",
-                    "Swap an item of clothing with someone",
-                    "Try to juggle 3 random things",
-                    "Chug a glass of water in 10 seconds",
-                    "Do a karaoke performance",
-                    "Prank you friend over the phone",
-                    "Make people guess a song by humming the tune",
-                    "Tuck your head in your T-shirt for 1 turn",
-                    "Drink something prepared by the others",
-                    "Imitate a celebrity and imagine yourself on a red carpet in front of the players",
-                    "Run around the room with a spoon (containing an egg) in your mouth",
-                    "Say 'Near an ear, a nearer ear, a nearly eerie ear' 5 times in a row",
-                    "Close your eyes for 1 turn",
-                    "Dance like a robot",
-                    "Imitate a British accent for 2 turns",
-                    "Using your hair, create a palm tree in the middle of your head",
-                    "Go outside and bark at the first passer-by",
-                    "Imitate the sound of a animal of your choice",
-                    "Do crab dance",
-                    "Let someone draw on your face with eyeliner",
-                    "Send a funny voice note to your group chat",
-                    "Eat something blindfolded",
-                    "Act like your drunkest moment",
-                    "Speak only in song lyrics for 2 minutes",
-                    "Put your socks on your hands for the next 3 rounds",
-                    "Read your last text out loud",
-                ],
-            },
-            Mature: {
-                truth: [
-                    "What’s your wildest fantasy?",
-                    "Would you let your partner fuck you in your dream?",
-                    "Rate your partner's body?",
-                    "Who was your best sexual partner, and why?",
-                    "What's your favorite position?",
-                    "What flavour of condom is your favourite?",
-                    "Tell your favourite pornstar",
-                    "Do you like dirty talk?",
-                    "Share your dirtiest secret",
-                    "Can you live your whole life without sex?",
-                    "Would you like to start onlyfans",
-                    "Would you like to be a pornstar",
-                    "How do you feel when you got touched on intimate parts?",
-                    "If you evermake a porn video what will be the story",
-                    "Tell your partner a dark/naughty secret",
-                    "What one you will choose for your partner to play with pussy or boobs?",
-                    "Ask anything you want",
-                    "What sex toy do you want to try",
-                    "Have you ever had a sex dream about me?",
-                    "What sex toy you would gift or suggest to try on your partner?",
-                    "What part of my body would you like to lick right now?",
-                    "Is there a sex toy you’d like to try on me?",
-                    "Your favourite pornstar",
-                    "Which bodypart of your partner you like to see now?",
-                    "What’s your favorite thing about my body?",
-                    "Would you like to be a pornstar",
-                    "Would you like to start onlyfans",
-                    "What’s the sexiest gift I could give you?",
-                    "Are you still virgin?",
-                    "How big is your partner's dick",
-                    "How do you feel when you play with your partner's boobs",
-                    "What’s the sexiest gift you’d like to give me?",
-                    "Is it fun to play with your partner",
-                    "If you become male/female for a day what you like to do?",
-                    "What’s the kinkiest thing you’ve done?",
-                    "Does size matter?",
-                    "Share an intimate fantasy",
-                    "What is your craziest sexual fantasy?",
-                    "What sex toy you want to try?",
-                    "Would you like to play with sex doll",
-                    "Would you like to be a pornstar",
-                    "Do you like your partner boobs, how do you feel about them?",
-                    "If you evermake a porn video what will be the story",
-                    "Is your partner sexy",
-                    "Would you like to start onlyfans",
-                    "Size or stamina",
-                    "Would i like to see your partner fucking someone else?",
-                    "Is your pussy tight?",
-                    "Share your favorite sexy dream",
-                    "Is your pussy tight?",
-                    "Do have have big boobs",
-                    "Would you let your partner to sex with someone else",
-                    "Your favourite pornstar",
-                    "What is number one on your sexual bucket list right now?",
-                    "What do you think is the sexiest part of my body?",
-                    "If the world is ending tomorrow would you like to do sex with me?",
-                    "If the world is ending tomorrow would you like to fuck me?",
-                    "Would you like to be a pornstar",
-                    "Tell your partner what is your most sensitive erogenous zone?",
-                    "If you evermake a porn video what will be the story",
-                    "Have you ever filmed yourself during sex?",
-                    "What one change you want to make to your partner body",
-                    "What could be the perfect size of dick/pussy/boobs?",
-                    "What sex toy you want to try so hard",
-                    "What’s your favorite body part to be kissed on?",
-                    "Ever had a crush on a friend’s partner?",
-                    "Would you like to start onlyfans",
-                    "Do you like being dominant or submissive?",
-                    "Have you ever had public sex?",
-                    "If you became male/female for a day what you would like to do?",
-                    "What’s your sexiest dream?",
-                    "Have you watched any adult content?",
-                    "What’s something really naughty you want to try?",
-                    "Where you like to be touched?",
-                    "Where you like to be touched top or bottom?",
-                    "Are you happy with your boobs size?",
-                    "What do you think about your partner's boobs?",
-                    "What do you think about your partner's dick?",
-                ],
-                dare: [
+        truth: [
+          "What's your favorite cartoon?",
+          "Have you ever eaten a bug?",
+          "Who's your best friend at school?",
+          "What’s your favorite color?",
+          "Do you have an imaginary friend?",
+          "What’s the funniest joke you know?",
+          "Have you ever lied to your parents?",
+          "What’s your biggest fear?",
+          "Do you believe in monsters?",
+          "What's your favorite ice cream flavor?",
+          "Have you ever peeked at gifts early?",
+          "What's your favorite subject in school?",
+          "What's your dream job?",
+          "Do you like vegetables?",
+          "What’s your weirdest habit?",
+        ],
+        dare: [
+          "Do 5 jumping jacks",
+          "Sing the ABC song",
+          "Pretend to be a dog for 10 seconds",
+          "Dance like a robot",
+          "Make a silly face and hold it for 10 seconds",
+          "Draw a picture with your eyes closed",
+          "Act like your favorite animal",
+          "Do a cartwheel",
+          "Talk like a pirate",
+          "Hop around the room",
+          "Tell a joke",
+          "Pretend the floor is lava",
+          "Balance a book on your head",
+          "Spin in a circle 5 times",
+          "Make up a song about pizza",
+        ],
+      },
+      Soft: {
+        truth: [
+          "Have you ever had a crush on someone in this room?",
+          "What’s your most embarrassing moment?",
+          "Have you ever cheated in a test?",
+          "Do you believe in love at first sight?",
+          "Who was your first crush?",
+          "Have you ever lied to a friend?",
+          "Have you ever sneaked snacks when your parents weren't looking?",
+          "What's a secret you've never told anyone?",
+          "Would you rather live in a house in a suburb or in an appartment in a big city?",
+          "If you had to audition for 'The Voice', which song would you choose to sing?",
+          "If you could be a professional athlete in any sport, what sport would you choose?",
+          "What have you done that you're the most proud of?",
+          "What's the worst job you could possibly have?",
+          "Would you rather be able to play any music instrument in the world or speak with animals?",
+          "What do you follow most often - your head or your heart?",
+          "If you were a king of your own kingdom, what would be your first order?",
+          "If you write a book, what would it be about?",
+          "If a genie came out of a lamp, what would your 3 wishes be?",
+          "Who in your opinion is the lamest celebrity?",
+          "If you had 5 extra hours a day, what would you spend them on?",
+          "If you had a time machine, to which time perioud would you go?",
+          "What's your favorite website?",
+          "If you win a 1.000.000$, what would you do with the money?",
+          "What's your biggest insecurity?",
+          "Do you sing in the shower?",
+          "What's your favorite romantic movie?",
+          "What's your guilty pleasure?",
+          "Have you ever broken someone's heart?",
+          "Would you go on a blind date?",
+          "What's your dream date?",
+          "Have you ever written a love letter?",
+        ],
+        dare: [
+          "Text your crush 'Hi 😊'",
+          "Do a TikTok dance",
+          "Speak in a British accent for the next round",
+          "Say something nice to everyone playing",
+          "Sing a romantic song",
+          "Imitate someone in the group",
+          "Write a cheesy pickup line and read it out loud",
+          "Compliment the person to your left",
+          "Act like you're on a cooking show",
+          "Do 10 push-ups",
+          "Take a selfie making a funny face",
+          "Talk like a baby for 1 minute",
+          "Whistle your favorite song",
+          "Try to touch your toes for 30 seconds",
+          "Say 3 things you love about yourself",
+        ],
+      },
+      Party: {
+        truth: [
+          "Have you ever drunk texted someone?",
+          "What’s the wildest thing you've done at a party?",
+          "Ever kissed more than one person in a day?",
+          "What's your craziest night out story?",
+          "Have you ever passed out from partying?",
+          "Have you ever danced on a table?",
+          "What’s your worst hangover story?",
+          "Have you ever done something you regret while drunk?",
+          "Who’s the most attractive person here?",
+          "Ever had a party hookup?",
+          "What’s your favorite party game?",
+          "Do you prefer clubbing or house parties?",
+          "What’s your party drink of choice?",
+          "Have you ever crashed a party?",
+          "What’s your best dance move?",
+        ],
+        dare: [
+          "Take a shot of lemon juice",
+          "Post an embarrassing photo on your story",
+          "Do a prank call to someone in your contacts",
+          "Dance with no music for 30 seconds",
+          "Swap an item of clothing with someone",
+          "Try to juggle 3 random things",
+          "Chug a glass of water in 10 seconds",
+          "Do a karaoke performance",
+          "Prank you friend over the phone",
+          "Make people guess a song by humming the tune",
+          "Tuck your head in your T-shirt for 1 turn",
+          "Drink something prepared by the others",
+          "Imitate a celebrity and imagine yourself on a red carpet in front of the players",
+          "Run around the room with a spoon (containing an egg) in your mouth",
+          "Say 'Near an ear, a nearer ear, a nearly eerie ear' 5 times in a row",
+          "Close your eyes for 1 turn",
+          "Dance like a robot",
+          "Imitate a British accent for 2 turns",
+          "Using your hair, create a palm tree in the middle of your head",
+          "Go outside and bark at the first passer-by",
+          "Imitate the sound of a animal of your choice",
+          "Do crab dance",
+          "Let someone draw on your face with eyeliner",
+          "Send a funny voice note to your group chat",
+          "Eat something blindfolded",
+          "Act like your drunkest moment",
+          "Speak only in song lyrics for 2 minutes",
+          "Put your socks on your hands for the next 3 rounds",
+          "Read your last text out loud",
+        ],
+      },
+      Mature: {
+        truth: [
+          "What’s your wildest fantasy?",
+          "Would you let your partner fuck you in your dream?",
+          "Rate your partner's body?",
+          "Who was your best sexual partner, and why?",
+          "What's your favorite position?",
+          "What flavour of condom is your favourite?",
+          "Tell your favourite pornstar",
+          "Do you like dirty talk?",
+          "Share your dirtiest secret",
+          "Can you live your whole life without sex?",
+          "Would you like to start onlyfans",
+          "Would you like to be a pornstar",
+          "How do you feel when you got touched on intimate parts?",
+          "If you evermake a porn video what will be the story",
+          "Tell your partner a dark/naughty secret",
+          "What one you will choose for your partner to play with pussy or boobs?",
+          "Ask anything you want",
+          "What sex toy do you want to try",
+          "Have you ever had a sex dream about me?",
+          "What sex toy you would gift or suggest to try on your partner?",
+          "What part of my body would you like to lick right now?",
+          "Is there a sex toy you’d like to try on me?",
+          "Your favourite pornstar",
+          "Which bodypart of your partner you like to see now?",
+          "What’s your favorite thing about my body?",
+          "Would you like to be a pornstar",
+          "Would you like to start onlyfans",
+          "What’s the sexiest gift I could give you?",
+          "Are you still virgin?",
+          "How big is your partner's dick",
+          "How do you feel when you play with your partner's boobs",
+          "What’s the sexiest gift you’d like to give me?",
+          "Is it fun to play with your partner",
+          "If you become male/female for a day what you like to do?",
+          "What’s the kinkiest thing you’ve done?",
+          "Does size matter?",
+          "Share an intimate fantasy",
+          "What is your craziest sexual fantasy?",
+          "What sex toy you want to try?",
+          "Would you like to play with sex doll",
+          "Would you like to be a pornstar",
+          "Do you like your partner boobs, how do you feel about them?",
+          "If you evermake a porn video what will be the story",
+          "Is your partner sexy",
+          "Would you like to start onlyfans",
+          "Size or stamina",
+          "Would i like to see your partner fucking someone else?",
+          "Is your pussy tight?",
+          "Share your favorite sexy dream",
+          "Is your pussy tight?",
+          "Do have have big boobs",
+          "Would you let your partner to sex with someone else",
+          "Your favourite pornstar",
+          "What is number one on your sexual bucket list right now?",
+          "What do you think is the sexiest part of my body?",
+          "If the world is ending tomorrow would you like to do sex with me?",
+          "If the world is ending tomorrow would you like to fuck me?",
+          "Would you like to be a pornstar",
+          "Tell your partner what is your most sensitive erogenous zone?",
+          "If you evermake a porn video what will be the story",
+          "Have you ever filmed yourself during sex?",
+          "What one change you want to make to your partner body",
+          "What could be the perfect size of dick/pussy/boobs?",
+          "What sex toy you want to try so hard",
+          "What’s your favorite body part to be kissed on?",
+          "Ever had a crush on a friend’s partner?",
+          "Would you like to start onlyfans",
+          "Do you like being dominant or submissive?",
+          "Have you ever had public sex?",
+          "If you became male/female for a day what you would like to do?",
+          "What’s your sexiest dream?",
+          "Have you watched any adult content?",
+          "What’s something really naughty you want to try?",
+          "Where you like to be touched?",
+          "Where you like to be touched top or bottom?",
+          "Are you happy with your boobs size?",
+          "What do you think about your partner's boobs?",
+          "What do you think about your partner's dick?",
+        ],
+        dare: [
 
-                    "Whisper something dirty to the person next to you",
-                    "Act out your favourite position",
-                    "Hold/touch your partner's intimate part untill next round",
-                    "Blowjob your partner and swallow it",
-                    "Give handjob to your partner",
-                    "Wear no pantie/bra tomorrow",
-                    "Blindfold your partner and guide them around your body using only touch.",
-                    "Fondle her boobs under her t-shirt",
-                    "Make a promise to your partner that they can do anything they want with you",
-                    "Flash your boobs to your partner",
-                    "Play with your partner's dick",
-                    "Make a dirty story about your partner",
-                    "Try a new sex position together",
-                    "Hug your partner",
-                    "Grab her boobs from behind",
-                    "Shop for a sexiest lingerie for your partner online",
-                    "Make a porn video with your partner",
-                    "Do whatever your partner say",
-                    "You have to do meditation/yoga and your partner will test your concentration by teasing you",
-                    "Make a promise to your partner that they can do anything they want with you",
-                    "Trace across my collarbone and run your finger down between my boobs and back up again",
-                    "Spend the next hour only communicating through sensual touching",
-                    "Put your hands in her panties and feel it",
-                    "Pour chocolate syrup or wipped cream on my nipples and lick it off.",
-                    "Lick your partner's boobs",
-                    "Give your partner an intimate body massage",
-                    "Make a naughty movie together",
-                    "Watch a porno for 5 minutes",
-                    "Perform oral sex on your partner",
-                    "Do whatever your partner say",
-                    "Grab her boobs from behind",
-                    "Smoke cigarette with your pussy",
-                    "Spend an hour exploring your partner’s body",
-                    "Fondle her boobs under her t-shirt",
-                    "Make a porn video with your partner",
-                    "Give a warm hug to your partner",
-                    "Lick her nipples",
-                    "Make a porno with your partner then watch together and repeat all your steps",
-                    "Massage your partner surprisingly after the game",
-                    "Your partner can do anything he/she wants with you for 5 minutes or more, then you can do the same with your partner",
-                    "Put your hand under your partner's top/bottom cloth and touch their intimate part",
-                    "Give me a boob massage",
-                    "Take off your panties",
-                    "Take off your bra",
-                    "Grab her boobs from behind",
-                    "Fuck me like it’s the first time",
-                    "Put your hands in her panties and feel it",
-                    "Finger your pussy",
-                    "Fondle her boobs under her t-shirt",
-                    "Sit on his lap and ride",
-                    "Sit on his dick and rub your pussy to his dick",
-                    "Make a promise to your partner that they can do anything they want with you",
-                    "Massage your partner surprisingly after the game",
-                    "Grab her boobs from behind",
-                    "Make a porn video with your partner",
-                    "Set up a nude photo shoot and capture your favorite poses and positions",
-                    "Watch a porno for 5 minutes",
-                    "Pick one part of your body and have your partner focus all their attention there",
-                    "Wear a sexiest lingerie",
-                    "Do whatever your partner say",
-                    "Play the rest of the game naked",
-                    "Shop for a sexiest lingerie for your partner online",
-                    "Get your partner naked",
-                    "Grab her boobs from behind",
-                    "Play with your partner's dick",
-                    "Give a warm hug to your partner",
-                    "Put your hand under your partner's top/bottom cloth and touch their intimate part",
-                    "Fuck me hard 3 times a day",
-                    "Do whatever your partner say",
-                    "Give me a sensual massage",
-                    "Play with my boobs",
-                    "Eat my pussy",
-                    "Play with my pussy",
-                    "Grab her boobs from behind",
-                    "Do whatever your partner say",
-                    "Fondle her boobs under her t-shirt",
-                    "Show me an intimate photo or nudes of yourself that I’ve never seen before",
-                    "Your partner can do anything he/she wants with you for 5 minutes or more, then you can do the same with your partner",
-                    "Play with your partner's boobs and tell her how it feels like",
-                    "Go to the bathroom and send me a naked snap",
-                    "Make a porn video with your partner",
-                    "Make a promise to your partner that they can do anything they want with you",
-                    "What scene from an adult movie or porn would you like to recreate with me?",
-                    "Grab her boobs from behind",
-                    "Do whatever your partner say",
-                    "Put your hands in her panties and feel it",
-                    "Pussy or boobs choose one to play with",
-                    "Watch a porno for 5 minutes of your favourite pornstar",
-                    "Get naked and try out your favorite sex toy in front of me",
-                    "Finger your pussy",
-                    "Fondle her boobs under her t-shirt",
-                    "Put one of your hands in my pants and play with it for the rest of the round",
-                    "Give a warm hug to your partner",
-                    "Ask your partner to play with your boobs and how do they feel",
-                    "Do whatever your partner say",
-                    "I dare you to unhook my bra with one hand",
-                    "Lick your partner's boobs",
-                    "Grab her boobs from behind",
-                    "I dare you to sketch a picture of me naked",
-                    "I dare you to put on your sexiest lingerie",
-                    "I dare you to wear vibrating panties",
-                    "Take off your panties",
-                    "Take off your bra",
-                    "I dare you to masturbate to the sexiest picture of me",
-                    "Do whatever your partner say",
-                    "Show your tits to your partner right now",
-                    "Fondle her boobs under her t-shirt",
-                    "Give a surprise sensual massage to your partner after the game",
-                    "Figure out is your partner pussy is tight by finguring her",
-                    "Grab her boobs from behind",
-                    "Make a porn video with your partner",
-                    "Make a promise to your partner that they can do anything they want with you",
-                    "I dare you to fuck me on the nearest surface we can find.",
-                    "Go in the bathroom and take the sexiest nudes you can and then send them to me",
-                    "I dare you to take erotic pictures of me while I suck your dick.",
-                    "Get me naked and play with me",
-                    "Fondle her boobs under her t-shirt",
-                    "Put your hands in her panties and feel it",
-                    "Your partner can do anything he/she wants with you for 5 minutes or more, then you can do the same with your partner",
-                    "Sleep naked with your partner",
-                    "Grab her boobs from behind",
-                    "Fuck me in the bathroom or shower",
-                    "Wear a sexiest lingerie",
-                    "Be my sexdoll",
-                    "Play with your partner's dick",
-                    "Do whatever your partner say",
-                    "Smoke cigarette with your pussy",
-                    "Imagine me naked",
-                    "Show your favorite position to your partner by replicate with them with cloths on",
-                    "Buy a sexdoll for your partner",
-                    "Demonstrate the sex act you’ve been dying to do with your partner.",
-                    "Your dare is to make your partner hard after the game",
-                    "Take off your panties",
-                    "Shop for a sexiest lingerie for your partner online",
-                    "Take off your bra",
-                    "Make a promise to your partner that they can do anything they want with you",
-                    "Gift your partner a sex toy",
-                    "Put your hand under your partner's top/bottom cloth and touch their intimate part",
-                    "Do whatever your partner say",
-                    "Put your hands in her panties and feel it",
-                    "Gift your partner a sexdoll",
-                    "Gift your partner a vibrator",
-                    "Fondle her boobs under her t-shirt",
-                    "Show your boobs",
-                    "Play with my boobs",
-                    "Grab her boobs from behind",
-                    "Do whatever your partner say",
-                    "Give me a boob massage",
-                    "Do whatever your partner say",
-                    "Give me a boob massage",
-                    "You are now sexdoll for your partner, your partner have to play with you",
-                    "Imagine and tell your partner what could be your first time sex should be like",
-                    "Massage your partner surprisingly after the game",
-                    "Show your favorite position to your partner by replicate with them with cloths on",
-                    "Smoke cigarette with your pussy",
-                    "Have sex in a new part of the house for the first time",
-                    "Give a warm hug to your partner",
-                    "Tease your pussy against his dick in doggystyle position",
-                    "Make a promise to your partner that they can do anything they want with you",
-                    "Your partner can do anything he/she wants with you for 5 minutes or more, then you can do the same with your partner",
-                    "Hide chocolate or candy in your clothes and have your significant other find it.",
-                    "Grab her boobs surprisingly after the game",
-                    "Fondle her boobs under her t-shirt",
-                    "Take off your panties",
-                    "Take off your bra",
-                    "Grab her boobs from behind",
-                    "Do whatever your partner say",
-                    "Hide something in your cloths and your partner have to find it",
-                    "Lick your partner's boobs",
-                    "Buy your partner a sexiest lingerie",
-                    "Send a sexy selfie when they least expect it",
-                    "Make a porn video with your partner",
-                    "Put your hands in her panties and feel it",
-                    "Do whatever your partner say",
-                    "Suck my nipples",
-                    "Show your favorite position to your partner by replicate with them with cloths on",
-                    "Shop for a sexiest lingerie for your partner online",
-                    "You have to give a sexiest-naughtiest surprise to your partner later",
-                    "Give a tight Hug to your partner",
-                    "Blindfold yourself and guess which part of your partner’s body you’re touching",
-                    "Touch yourself like you’d like me to touch you",
-                    "Select a sexiest lingerie or bikini online for your partner and shop for it",
-                    "Wear a sexiest lingerie",
-                    "Fondle her boobs under her t-shirt",
-                    "Put your hand under your partner's top/bottom cloth and touch their intimate part",
-                    "Hide something in your cloths and your partner have to find it",
-                    "Make a promise to your partner that they can do anything they want with you",
-                    "Make a naughtiest promise with your partner",
-                    "Touch your partner with your chest",
-                    "Take off your panties",
-                    "Take off your bra",
-                    "Grab her boobs from behind",
-                    "Go to the bathroom and send me a nude",
-                    "Do whatever your partner say",
-                    "Give any naughty dare to your partner",
-                    "Massage your partner surprisingly after the game",
-                    "Go to the bathroom and send me your naked snap",
-                    "Give chest massage to your parner",
-                    "Top your partner and start riding",
-                    "Show your favorite position to your partner by replicate with them with cloths on",
-                    "Wear a sexiest lingerie",
-                    "Major the size of your partner's dick",
-                    "Major the size of your partner's boobs",
-                    "Put your hands in her panties and feel it",
-                    "Major the size of my boobs",
-                    "Touch, grab, squeez, pinch & suck my boobs and nipples",
-                    "Do BDSM with your partner, enjoy",
-                    "Suck my nipple just for a minute",
-                    "Make a promise to your partner that they can do anything they want with you",
-                    "Fondle her boobs under her t-shirt",
-                    "Touch your partner's intimate parts",
-                    "Do whatever your partner say",
-                    "I dare you to let me touch you anytime",
-                    "Wear a sexiest lingerie",
-                    "You are his/her submissive for 5 minutes",
-                    "Do whatever your partner say",
-                    "Give your female partner sensual massage while they sit at the work/watch TV/phone/study",
-                    "Massage your partner surprisingly after the game",
-                    "Take off your panties",
-                    "Take off your bra",
-                    "Put your pants down and show your underwear color",
-                    "Send your partner a naked snap",
-                    "Shop for a sexiest lingerie for your partner online",
-                    "Undress your partner up to his/her underwear",
-                    "Shop for a sexiest lingerie for your partner online",
-                    "Touch another player's boobs",
-                    "Give me a boob massage",
-                    "Lick your partner's boobs",
-                    "Hide something in your cloths and your partner have to find it",
-                    "Show your favorite position to your partner by replicate with them with cloths on",
-                    "Massage your partner surprisingly after the game",
-                    "Wear a sexiest lingerie",
-                    "Fondle her boobs under her t-shirt",
-                    "Give another player a sensual massage",
-                    "Suck my boobs, eat my pussy & fuck me hard",
-                    "Put your hands in her panties and feel it",
-                    "Kiss your partner's intimate parts",
-                    "Major the size of your partner's boobs",
-                    "Put your hand under your partner's top/bottom cloth and touch their intimate part",
-                    "Give massage to your partner where ever they want",
-                    "Play with your partner's dick",,
-                    "Take off your panties",
-                    "Take off your bra",
-                    "Grab her boobs from behind",
-                    "Do whatever your partner say",
-                    "Do motorboat with your partner",
-                    "Give a motorboat to your partner",
-                    "Play with your partner's boobs",
-                    "Make a promise to your partner that they can do anything they want with you",
-                    "Find your partner's nipple",
-                    "I dare you to let me touch you anytime",
-                    "Pinch, squeez and rub your partner's nipple",
-                    "Play with your partner's intimate parts",
-                    "Finger your partner",
-                    "Show your favorite position to your partner by replicate with them with cloths on",
-                    "Finger your partner pussy",
-                    "Massage your partner surprisingly after the game",
-                    "Make a porn video with your partner",
-                    "Masterbate your partner",
-                    "Give your partner a sensual massage",
-                    "Massage your partner atleast 10 times even after the game",
-                    "Take off your partner's bra",
-                    "Give a kiss on my favourite body part",
-                    "Fondle her boobs under her t-shirt",
-                    "Make your partner horny",
-                    "Slap your partner's butt",
-                    "Eat your partner's pussy",
-                    "Do whatever your partner say",
-                    "Take off your panties",
-                    "Take off your bra",
-                    "Lick your partner's pussy",
-                    "Put your hands in her panties and feel it",
-                    "Give a warm hug to your partner",
-                    "Shop for a sexiest lingerie for your partner online",
-                    "Grab my boobs and play with them",
-                    "Lick your partner's dick",
-                    "Take off your partner's bra",
-                    "Show your boobs",
-                    "Send your nudes to your partner",
-                    "Ask your partner to take your nudes pictures",
-                    "Intimate a sex position with cloths on",
-                    "Try a sex position with cloths on",
-                    "Fuck your partner like it is last time",
-                    "Do whatever your partner say",
-                    "Grab my boobs and play with them",
-                    "Make a naughty deal/promise with your parnter",
-                    "Fondle her boobs under her t-shirt",
-                    "Imagine your finger as dick and suck it",
-                    "Wear a sexiest lingerie",
-                    "You have to fake replicate a sex position with your partner",
-                    "Take off your partner's bra",
-                    "Watch a porno with your partner",
-                    "Use a sex toy on me",
-                    "You have to take off all of your cloths and show your body to your partner",
-                    "Massage your partner surprisingly after the game",
-                    "Show your favorite position to your partner by replicate with them with cloths on",
-                    "Remove your partner's bra",
-                    "Massage your partner untill they got satisfied",
-                    "Put your hand under your partner's top/bottom cloth and touch their intimate part",
-                    "Let your partner do anything he/she wants with you for 5 min or more",
-                    "Give your partner a blowjob",
-                    "Give a boob massage to your partner",
-                    "I dare you to let me use a sex toy on you",
-                    "Make your partner cum using only your lips",
-                    "Put your hands under your partner's cloth and feel their intimate parts",
-                    "Masterbate eachother",
-                    "Fuck your partner, have fun time",
-                    "Let your partner do anything he/she wants with you for 5 min or more",
-                    "Lick whipped cream off your partner’s boobs/pussy/dick",
-                    "Take off your partner's bra",
-                    "Give your partner Handjob/Blowjob",
-                    "I dare you to let me touch you anytime",
-                    "Send your nudes to your partner",
-                    "Make a promise to your partner that they can do anything they want with you",
-                    "Make a porn video with your partner",
-                    "Hold your partner's dick and say 'Hell yeah'",
-                    "Find and touch nipples inside your partner's bra",
-                    "Play with your partner's dick",
-                    "I dare you to let me touch you anytime",
-                    "Kiss my pussy",
-                    "Suck my tits",
-                    "Lick your partner's nipple",
-                    "Fuck your partner",
-                    "Do 69 with your partner",
-                    "You have to give a sexiest-naughtiest surprise to your partner later after the game",
-                    "Fuck your partner in their favourite position",
-                    "Grab her boobs from behind",
-                    "Shop for a sexiest lingerie for your partner online",
-                    "Wear a sexiest lingerie",
-                    "Play with your partner's boobs",
-                    "Blindfold your partner and do what you want with her/his body for 5 minute",
-                    "Play the rest of the game naked",
-                    "Send your nudes to your partner",
-                    "Put your hand under your partner's top/bottom cloth and touch their intimate part",
-                    "Show your partner by holding their hand that how they can give you massage and let them continue",
-                    "Get naked",
-                    "Grab her boobs from behind",
-                    "Send your partner a topless nude",
-                    "Take a picture of her boobs",
-                    "Take a sexiest picture of her",
-                    "Show your boobs",
-                    "Show your tits",
-                    "Ask your partner to do something naughty with you",
-                    "Select a sexiest lingerie or bikini online for your partner and shop for it",
-                    "Slap my butt, suck my boobs",
-                    "Fuck me so hard",
-                    "Grab my boobs",
-                    "Give me a boob massage",
-                    "Put your hand under your partner's top/bottom cloth and touch their intimate part",
-                    "Massage your partner surprisingly after the game",
-                    "Make your partner wet/hard",
-                    "Fuck your partner in 3 different position",
-                    "Be submissive of your partner",
-                    "Do whatever your partner say",
-                    "Buy your partner a sex toy as gift",
-                    "Play with my tits",
-                    "Wear a sexiest lingerie",
-                    "Watch a video of your favourite pornstar",
-                    "Watch a video of your favourite pornstar and copy every move with your partner",
-                    "Spend the evening whispering your most intimate desires to each other",
-                    "Change your cloths in front of your partner",
-                    "Take a bath with your partner",
-                    "Play with my boobs",
-                    "Put your hands in her panties and feel it",
-                    "Grab her boobs from behind",
-                    "Kiss your partner's pussy",
-                    "I dare you to let me touch you anytime",
-                    "You are now a sexdoll for your partner for next 24 hours",
-                    "Make your partner satisfied",
-                    "Give a warm hug to your partner",
-                    "Shop for a sexiest lingerie for your partner online",
-                    "Show your pussy & boobs to your partner",
-                    "Grab my boobs and play with them",
-                    "Fondle her boobs under her t-shirt",
-                    "Do whatever your partner say",
-                    "Play with my boobs",
-                    "Fuck me hard",
-                    "Select a sexiest lingerie or bikini online for your partner and shop for it",
-                    "Show your dick to your partner",
-                    "Let your partner wear you a condom",
-                    "Fuck your partner for an hour",
-                    "I dare you to let me touch you anytime",
-                    "Grab your partner's boobs",
-                    "Play with your partner's dick",
-                    "Do whatever your partner say",
-                    "Test a new position",
-                    "Your partner can do anything he/she wants with you for 5 minutes or more, then you can do the same with your partner",
-                    "Tell everybody about your favorite sex toy",
-                    "Massage your partner surprisingly after the game",
-                    "Be the submissive of your partner for 15 minutes",
-                    "Take off your partner's bra",
-                    "Grab her boobs from behind",
-                ],
-            },
-        };
+          "Whisper something dirty to the person next to you",
+          "Act out your favourite position",
+          "Hold/touch your partner's intimate part untill next round",
+          "Blowjob your partner and swallow it",
+          "Give handjob to your partner",
+          "Wear no pantie/bra tomorrow",
+          "Blindfold your partner and guide them around your body using only touch.",
+          "Fondle her boobs under her t-shirt",
+          "Make a promise to your partner that they can do anything they want with you",
+          "Flash your boobs to your partner",
+          "Play with your partner's dick",
+          "Make a dirty story about your partner",
+          "Try a new sex position together",
+          "Hug your partner",
+          "Grab her boobs from behind",
+          "Shop for a sexiest lingerie for your partner online",
+          "Make a porn video with your partner",
+          "Do whatever your partner say",
+          "You have to do meditation/yoga and your partner will test your concentration by teasing you",
+          "Make a promise to your partner that they can do anything they want with you",
+          "Trace across my collarbone and run your finger down between my boobs and back up again",
+          "Spend the next hour only communicating through sensual touching",
+          "Put your hands in her panties and feel it",
+          "Pour chocolate syrup or wipped cream on my nipples and lick it off.",
+          "Lick your partner's boobs",
+          "Give your partner an intimate body massage",
+          "Make a naughty movie together",
+          "Watch a porno for 5 minutes",
+          "Perform oral sex on your partner",
+          "Do whatever your partner say",
+          "Grab her boobs from behind",
+          "Smoke cigarette with your pussy",
+          "Spend an hour exploring your partner’s body",
+          "Fondle her boobs under her t-shirt",
+          "Make a porn video with your partner",
+          "Give a warm hug to your partner",
+          "Lick her nipples",
+          "Make a porno with your partner then watch together and repeat all your steps",
+          "Massage your partner surprisingly after the game",
+          "Your partner can do anything he/she wants with you for 5 minutes or more, then you can do the same with your partner",
+          "Put your hand under your partner's top/bottom cloth and touch their intimate part",
+          "Give me a boob massage",
+          "Take off your panties",
+          "Take off your bra",
+          "Grab her boobs from behind",
+          "Fuck me like it’s the first time",
+          "Put your hands in her panties and feel it",
+          "Finger your pussy",
+          "Fondle her boobs under her t-shirt",
+          "Sit on his lap and ride",
+          "Sit on his dick and rub your pussy to his dick",
+          "Make a promise to your partner that they can do anything they want with you",
+          "Massage your partner surprisingly after the game",
+          "Grab her boobs from behind",
+          "Make a porn video with your partner",
+          "Set up a nude photo shoot and capture your favorite poses and positions",
+          "Watch a porno for 5 minutes",
+          "Pick one part of your body and have your partner focus all their attention there",
+          "Wear a sexiest lingerie",
+          "Do whatever your partner say",
+          "Play the rest of the game naked",
+          "Shop for a sexiest lingerie for your partner online",
+          "Get your partner naked",
+          "Grab her boobs from behind",
+          "Play with your partner's dick",
+          "Give a warm hug to your partner",
+          "Put your hand under your partner's top/bottom cloth and touch their intimate part",
+          "Fuck me hard 3 times a day",
+          "Do whatever your partner say",
+          "Give me a sensual massage",
+          "Play with my boobs",
+          "Eat my pussy",
+          "Play with my pussy",
+          "Grab her boobs from behind",
+          "Do whatever your partner say",
+          "Fondle her boobs under her t-shirt",
+          "Show me an intimate photo or nudes of yourself that I’ve never seen before",
+          "Your partner can do anything he/she wants with you for 5 minutes or more, then you can do the same with your partner",
+          "Play with your partner's boobs and tell her how it feels like",
+          "Go to the bathroom and send me a naked snap",
+          "Make a porn video with your partner",
+          "Make a promise to your partner that they can do anything they want with you",
+          "What scene from an adult movie or porn would you like to recreate with me?",
+          "Grab her boobs from behind",
+          "Do whatever your partner say",
+          "Put your hands in her panties and feel it",
+          "Pussy or boobs choose one to play with",
+          "Watch a porno for 5 minutes of your favourite pornstar",
+          "Get naked and try out your favorite sex toy in front of me",
+          "Finger your pussy",
+          "Fondle her boobs under her t-shirt",
+          "Put one of your hands in my pants and play with it for the rest of the round",
+          "Give a warm hug to your partner",
+          "Ask your partner to play with your boobs and how do they feel",
+          "Do whatever your partner say",
+          "I dare you to unhook my bra with one hand",
+          "Lick your partner's boobs",
+          "Grab her boobs from behind",
+          "I dare you to sketch a picture of me naked",
+          "I dare you to put on your sexiest lingerie",
+          "I dare you to wear vibrating panties",
+          "Take off your panties",
+          "Take off your bra",
+          "I dare you to masturbate to the sexiest picture of me",
+          "Do whatever your partner say",
+          "Show your tits to your partner right now",
+          "Fondle her boobs under her t-shirt",
+          "Give a surprise sensual massage to your partner after the game",
+          "Figure out is your partner pussy is tight by finguring her",
+          "Grab her boobs from behind",
+          "Make a porn video with your partner",
+          "Make a promise to your partner that they can do anything they want with you",
+          "I dare you to fuck me on the nearest surface we can find.",
+          "Go in the bathroom and take the sexiest nudes you can and then send them to me",
+          "I dare you to take erotic pictures of me while I suck your dick.",
+          "Get me naked and play with me",
+          "Fondle her boobs under her t-shirt",
+          "Put your hands in her panties and feel it",
+          "Your partner can do anything he/she wants with you for 5 minutes or more, then you can do the same with your partner",
+          "Sleep naked with your partner",
+          "Grab her boobs from behind",
+          "Fuck me in the bathroom or shower",
+          "Wear a sexiest lingerie",
+          "Be my sexdoll",
+          "Play with your partner's dick",
+          "Do whatever your partner say",
+          "Smoke cigarette with your pussy",
+          "Imagine me naked",
+          "Show your favorite position to your partner by replicate with them with cloths on",
+          "Buy a sexdoll for your partner",
+          "Demonstrate the sex act you’ve been dying to do with your partner.",
+          "Your dare is to make your partner hard after the game",
+          "Take off your panties",
+          "Shop for a sexiest lingerie for your partner online",
+          "Take off your bra",
+          "Make a promise to your partner that they can do anything they want with you",
+          "Gift your partner a sex toy",
+          "Put your hand under your partner's top/bottom cloth and touch their intimate part",
+          "Do whatever your partner say",
+          "Put your hands in her panties and feel it",
+          "Gift your partner a sexdoll",
+          "Gift your partner a vibrator",
+          "Fondle her boobs under her t-shirt",
+          "Show your boobs",
+          "Play with my boobs",
+          "Grab her boobs from behind",
+          "Do whatever your partner say",
+          "Give me a boob massage",
+          "Do whatever your partner say",
+          "Give me a boob massage",
+          "You are now sexdoll for your partner, your partner have to play with you",
+          "Imagine and tell your partner what could be your first time sex should be like",
+          "Massage your partner surprisingly after the game",
+          "Show your favorite position to your partner by replicate with them with cloths on",
+          "Smoke cigarette with your pussy",
+          "Have sex in a new part of the house for the first time",
+          "Give a warm hug to your partner",
+          "Tease your pussy against his dick in doggystyle position",
+          "Make a promise to your partner that they can do anything they want with you",
+          "Your partner can do anything he/she wants with you for 5 minutes or more, then you can do the same with your partner",
+          "Hide chocolate or candy in your clothes and have your significant other find it.",
+          "Grab her boobs surprisingly after the game",
+          "Fondle her boobs under her t-shirt",
+          "Take off your panties",
+          "Take off your bra",
+          "Grab her boobs from behind",
+          "Do whatever your partner say",
+          "Hide something in your cloths and your partner have to find it",
+          "Lick your partner's boobs",
+          "Buy your partner a sexiest lingerie",
+          "Send a sexy selfie when they least expect it",
+          "Make a porn video with your partner",
+          "Put your hands in her panties and feel it",
+          "Do whatever your partner say",
+          "Suck my nipples",
+          "Show your favorite position to your partner by replicate with them with cloths on",
+          "Shop for a sexiest lingerie for your partner online",
+          "You have to give a sexiest-naughtiest surprise to your partner later",
+          "Give a tight Hug to your partner",
+          "Blindfold yourself and guess which part of your partner’s body you’re touching",
+          "Touch yourself like you’d like me to touch you",
+          "Select a sexiest lingerie or bikini online for your partner and shop for it",
+          "Wear a sexiest lingerie",
+          "Fondle her boobs under her t-shirt",
+          "Put your hand under your partner's top/bottom cloth and touch their intimate part",
+          "Hide something in your cloths and your partner have to find it",
+          "Make a promise to your partner that they can do anything they want with you",
+          "Make a naughtiest promise with your partner",
+          "Touch your partner with your chest",
+          "Take off your panties",
+          "Take off your bra",
+          "Grab her boobs from behind",
+          "Go to the bathroom and send me a nude",
+          "Do whatever your partner say",
+          "Give any naughty dare to your partner",
+          "Massage your partner surprisingly after the game",
+          "Go to the bathroom and send me your naked snap",
+          "Give chest massage to your parner",
+          "Top your partner and start riding",
+          "Show your favorite position to your partner by replicate with them with cloths on",
+          "Wear a sexiest lingerie",
+          "Major the size of your partner's dick",
+          "Major the size of your partner's boobs",
+          "Put your hands in her panties and feel it",
+          "Major the size of my boobs",
+          "Touch, grab, squeez, pinch & suck my boobs and nipples",
+          "Do BDSM with your partner, enjoy",
+          "Suck my nipple just for a minute",
+          "Make a promise to your partner that they can do anything they want with you",
+          "Fondle her boobs under her t-shirt",
+          "Touch your partner's intimate parts",
+          "Do whatever your partner say",
+          "I dare you to let me touch you anytime",
+          "Wear a sexiest lingerie",
+          "You are his/her submissive for 5 minutes",
+          "Do whatever your partner say",
+          "Give your female partner sensual massage while they sit at the work/watch TV/phone/study",
+          "Massage your partner surprisingly after the game",
+          "Take off your panties",
+          "Take off your bra",
+          "Put your pants down and show your underwear color",
+          "Send your partner a naked snap",
+          "Shop for a sexiest lingerie for your partner online",
+          "Undress your partner up to his/her underwear",
+          "Shop for a sexiest lingerie for your partner online",
+          "Touch another player's boobs",
+          "Give me a boob massage",
+          "Lick your partner's boobs",
+          "Hide something in your cloths and your partner have to find it",
+          "Show your favorite position to your partner by replicate with them with cloths on",
+          "Massage your partner surprisingly after the game",
+          "Wear a sexiest lingerie",
+          "Fondle her boobs under her t-shirt",
+          "Give another player a sensual massage",
+          "Suck my boobs, eat my pussy & fuck me hard",
+          "Put your hands in her panties and feel it",
+          "Kiss your partner's intimate parts",
+          "Major the size of your partner's boobs",
+          "Put your hand under your partner's top/bottom cloth and touch their intimate part",
+          "Give massage to your partner where ever they want",
+          "Play with your partner's dick", ,
+          "Take off your panties",
+          "Take off your bra",
+          "Grab her boobs from behind",
+          "Do whatever your partner say",
+          "Do motorboat with your partner",
+          "Give a motorboat to your partner",
+          "Play with your partner's boobs",
+          "Make a promise to your partner that they can do anything they want with you",
+          "Find your partner's nipple",
+          "I dare you to let me touch you anytime",
+          "Pinch, squeez and rub your partner's nipple",
+          "Play with your partner's intimate parts",
+          "Finger your partner",
+          "Show your favorite position to your partner by replicate with them with cloths on",
+          "Finger your partner pussy",
+          "Massage your partner surprisingly after the game",
+          "Make a porn video with your partner",
+          "Masterbate your partner",
+          "Give your partner a sensual massage",
+          "Massage your partner atleast 10 times even after the game",
+          "Take off your partner's bra",
+          "Give a kiss on my favourite body part",
+          "Fondle her boobs under her t-shirt",
+          "Make your partner horny",
+          "Slap your partner's butt",
+          "Eat your partner's pussy",
+          "Do whatever your partner say",
+          "Take off your panties",
+          "Take off your bra",
+          "Lick your partner's pussy",
+          "Put your hands in her panties and feel it",
+          "Give a warm hug to your partner",
+          "Shop for a sexiest lingerie for your partner online",
+          "Grab my boobs and play with them",
+          "Lick your partner's dick",
+          "Take off your partner's bra",
+          "Show your boobs",
+          "Send your nudes to your partner",
+          "Ask your partner to take your nudes pictures",
+          "Intimate a sex position with cloths on",
+          "Try a sex position with cloths on",
+          "Fuck your partner like it is last time",
+          "Do whatever your partner say",
+          "Grab my boobs and play with them",
+          "Make a naughty deal/promise with your parnter",
+          "Fondle her boobs under her t-shirt",
+          "Imagine your finger as dick and suck it",
+          "Wear a sexiest lingerie",
+          "You have to fake replicate a sex position with your partner",
+          "Take off your partner's bra",
+          "Watch a porno with your partner",
+          "Use a sex toy on me",
+          "You have to take off all of your cloths and show your body to your partner",
+          "Massage your partner surprisingly after the game",
+          "Show your favorite position to your partner by replicate with them with cloths on",
+          "Remove your partner's bra",
+          "Massage your partner untill they got satisfied",
+          "Put your hand under your partner's top/bottom cloth and touch their intimate part",
+          "Let your partner do anything he/she wants with you for 5 min or more",
+          "Give your partner a blowjob",
+          "Give a boob massage to your partner",
+          "I dare you to let me use a sex toy on you",
+          "Make your partner cum using only your lips",
+          "Put your hands under your partner's cloth and feel their intimate parts",
+          "Masterbate eachother",
+          "Fuck your partner, have fun time",
+          "Let your partner do anything he/she wants with you for 5 min or more",
+          "Lick whipped cream off your partner’s boobs/pussy/dick",
+          "Take off your partner's bra",
+          "Give your partner Handjob/Blowjob",
+          "I dare you to let me touch you anytime",
+          "Send your nudes to your partner",
+          "Make a promise to your partner that they can do anything they want with you",
+          "Make a porn video with your partner",
+          "Hold your partner's dick and say 'Hell yeah'",
+          "Find and touch nipples inside your partner's bra",
+          "Play with your partner's dick",
+          "I dare you to let me touch you anytime",
+          "Kiss my pussy",
+          "Suck my tits",
+          "Lick your partner's nipple",
+          "Fuck your partner",
+          "Do 69 with your partner",
+          "You have to give a sexiest-naughtiest surprise to your partner later after the game",
+          "Fuck your partner in their favourite position",
+          "Grab her boobs from behind",
+          "Shop for a sexiest lingerie for your partner online",
+          "Wear a sexiest lingerie",
+          "Play with your partner's boobs",
+          "Blindfold your partner and do what you want with her/his body for 5 minute",
+          "Play the rest of the game naked",
+          "Send your nudes to your partner",
+          "Put your hand under your partner's top/bottom cloth and touch their intimate part",
+          "Show your partner by holding their hand that how they can give you massage and let them continue",
+          "Get naked",
+          "Grab her boobs from behind",
+          "Send your partner a topless nude",
+          "Take a picture of her boobs",
+          "Take a sexiest picture of her",
+          "Show your boobs",
+          "Show your tits",
+          "Ask your partner to do something naughty with you",
+          "Select a sexiest lingerie or bikini online for your partner and shop for it",
+          "Slap my butt, suck my boobs",
+          "Fuck me so hard",
+          "Grab my boobs",
+          "Give me a boob massage",
+          "Put your hand under your partner's top/bottom cloth and touch their intimate part",
+          "Massage your partner surprisingly after the game",
+          "Make your partner wet/hard",
+          "Fuck your partner in 3 different position",
+          "Be submissive of your partner",
+          "Do whatever your partner say",
+          "Buy your partner a sex toy as gift",
+          "Play with my tits",
+          "Wear a sexiest lingerie",
+          "Watch a video of your favourite pornstar",
+          "Watch a video of your favourite pornstar and copy every move with your partner",
+          "Spend the evening whispering your most intimate desires to each other",
+          "Change your cloths in front of your partner",
+          "Take a bath with your partner",
+          "Play with my boobs",
+          "Put your hands in her panties and feel it",
+          "Grab her boobs from behind",
+          "Kiss your partner's pussy",
+          "I dare you to let me touch you anytime",
+          "You are now a sexdoll for your partner for next 24 hours",
+          "Make your partner satisfied",
+          "Give a warm hug to your partner",
+          "Shop for a sexiest lingerie for your partner online",
+          "Show your pussy & boobs to your partner",
+          "Grab my boobs and play with them",
+          "Fondle her boobs under her t-shirt",
+          "Do whatever your partner say",
+          "Play with my boobs",
+          "Fuck me hard",
+          "Select a sexiest lingerie or bikini online for your partner and shop for it",
+          "Show your dick to your partner",
+          "Let your partner wear you a condom",
+          "Fuck your partner for an hour",
+          "I dare you to let me touch you anytime",
+          "Grab your partner's boobs",
+          "Play with your partner's dick",
+          "Do whatever your partner say",
+          "Test a new position",
+          "Your partner can do anything he/she wants with you for 5 minutes or more, then you can do the same with your partner",
+          "Tell everybody about your favorite sex toy",
+          "Massage your partner surprisingly after the game",
+          "Be the submissive of your partner for 15 minutes",
+          "Take off your partner's bra",
+          "Grab her boobs from behind",
+        ],
+      },
+    };
 
     let currentLevel = "";
 
@@ -899,4 +1065,5 @@
     }
   </script>
 </body>
+
 </html>
